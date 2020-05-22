@@ -4,14 +4,15 @@ import (
 	"github.com/graphql-go/graphql"
 )
 
-var NotTodo = graphql.NewObject(graphql.ObjectConfig{
-	Name: "NotTodo",
+var User = graphql.NewObject(graphql.ObjectConfig{
+	Name: "User",
 	Fields: graphql.Fields{
-		"name": &graphql.Field{
+		"username": &graphql.Field{
 			Type: graphql.String,
 		},
-		"description": &graphql.Field{
+		"password": &graphql.Field{
 			Type: graphql.String,
 		},
 	},
 })
+

@@ -1,0 +1,2 @@
+-> create mongo db and insert into appropriate files the credentials [ ]
+-> finish code in queries/get[...].go (read in json and convert to struct list)

@@ -2,10 +2,13 @@ package queries
 
 import (
 	"context"
+	"fmt"
+	"log"
 
 	"github.com/graphql-go/graphql"
 	"github.com/mongodb/mongo-go-driver/bson"
 
+	"app/data"
 	types "app/types"
 )
 
@@ -20,42 +23,26 @@ var GetNotTodos = &graphql.Field{
 	Resolve: func(params graphql.ResolveParams) (interface{}, error) {
 
 		notTodoCollection := mongo.Client.Database("medium-app").Collection("Not_Todos")
-		todos, err := notTodoCollection.Find(context.Background(), nil)
+
+		todos, err := notTodoCollection.Find(context.Background(), bson.M{})
 		if err != nil {
-			panic(err)
+			log.Fatal(err)
 		}
+		defer todos.Close(context.Background())
 		var todosList []todoStruct
 		for todos.Next(context.Background()) {
-
-			doc := bson.NewDocument()
-			err := todos.Decode(doc)
-
-			if err != nil {
-				panic(err)
+			var doc bson.M
+			if err = todos.Decode(&doc); err != nil {
+				log.Fatal(err)
 			}
-
-			keys, err := doc.Keys(false)
-
-			if err != nil {
-				panic(err)
-			}
+			fmt.Println(doc)
 
 			// convert BSON to struct
 			todo := todoStruct{}
-			for _, key := range keys {
-				keyString := key.String()
-				elm, err := doc.Lookup(keyString)
-				if err != nil {
-					panic(err)
-				}
-				switch keyString {
-				case "name":
-					todo.NAME = elm.Value().StringValue()
-				case "description":
-					todo.DESCRIPTION = elm.Value().StringValue()
-				default:
-				}
-			}
+
+			//finish later
+
+
 			todosList = append(todosList, todo)
 		}
 
