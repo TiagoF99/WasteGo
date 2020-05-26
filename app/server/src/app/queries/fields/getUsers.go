@@ -29,7 +29,7 @@ var GetUsers = &graphql.Field{
 			log.Fatal(err)
 		}
 		defer users.Close(context.Background())
-		var usersList []todoStruct
+		var usersList []userStruct
 		for users.Next(context.Background()) {
 			var doc bson.M
 			if err = users.Decode(&doc); err != nil {
