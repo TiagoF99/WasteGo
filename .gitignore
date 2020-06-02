@@ -1,2 +1,5 @@
 # hide mongo credentials
 /app/server/src/app/data/mongo.go
+/**/mongo.go
+app/server/src/app/data/
+./app/server/src/app/data/mongo.go
