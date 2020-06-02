@@ -30,7 +30,7 @@ var CreateNotTodo = &graphql.Field{
 		// get our params
 		name, _ := params.Args["name"].(string)
 		description, _ := params.Args["description"].(string)
-		notTodoCollection := mongo.Client.Database("").Collection("")
+		notTodoCollection := mongo.Client.Database("wastego").Collection("todo")
 		_, err := notTodoCollection.InsertOne(context.Background(), map[string]string{"name": name, "description": description})
 		if err != nil {
 			panic(err)

@@ -2,7 +2,6 @@ package queries
 
 import (
 	"context"
-	"fmt"
 	"log"
 
 	"github.com/graphql-go/graphql"
@@ -13,7 +12,7 @@ import (
 )
 
 type userStruct struct {
-	USERNAME        string `json:"username"`
+	USERNAME string `json:"username"`
 	PASSWORD string `json:"password"`
 }
 
@@ -22,9 +21,9 @@ var GetUsers = &graphql.Field{
 	Description: "Get all Users",
 	Resolve: func(params graphql.ResolveParams) (interface{}, error) {
 
-		notTodoCollection := mongo.Client.Database("").Collection("")
+		userCollection := mongo.Client.Database("wastego").Collection("user")
 
-		users, err := notTodoCollection.Find(context.Background(), bson.M{})
+		users, err := userCollection.Find(context.Background(), bson.M{})
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -35,13 +34,14 @@ var GetUsers = &graphql.Field{
 			if err = users.Decode(&doc); err != nil {
 				log.Fatal(err)
 			}
-			fmt.Println(doc)
 
 			// convert BSON to struct
-			user := userStruct{}
+			user := userStruct{
+				USERNAME: doc["username"].(string),
+				PASSWORD: doc["password"].(string),
+			}
 
 			//finish later
-
 
 			usersList = append(usersList, user)
 		}

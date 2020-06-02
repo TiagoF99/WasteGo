@@ -2,12 +2,11 @@ package queries
 
 import (
 	"context"
-	"fmt"
 	"log"
 
 	"github.com/graphql-go/graphql"
 	"github.com/mongodb/mongo-go-driver/bson"
-
+	
 	"app/data"
 	types "app/types"
 )
@@ -22,7 +21,7 @@ var GetNotTodos = &graphql.Field{
 	Description: "Get all not todos",
 	Resolve: func(params graphql.ResolveParams) (interface{}, error) {
 
-		notTodoCollection := mongo.Client.Database("medium-app").Collection("Not_Todos")
+		notTodoCollection := mongo.Client.Database("wastego").Collection("todo")
 
 		todos, err := notTodoCollection.Find(context.Background(), bson.M{})
 		if err != nil {
@@ -35,13 +34,14 @@ var GetNotTodos = &graphql.Field{
 			if err = todos.Decode(&doc); err != nil {
 				log.Fatal(err)
 			}
-			fmt.Println(doc)
 
 			// convert BSON to struct
-			todo := todoStruct{}
+			todo := todoStruct{
+				NAME: doc["name"].(string),
+				DESCRIPTION: doc["description"].(string),
+			}
 
 			//finish later
-
 
 			todosList = append(todosList, todo)
 		}
