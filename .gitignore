@@ -1,0 +1,2 @@
+# hide mongo credentials
+/app/server/src/app/data
