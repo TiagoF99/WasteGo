@@ -11,5 +11,6 @@ var RootQuery = graphql.NewObject(graphql.ObjectConfig{
 	Fields: graphql.Fields{
 		"getNotTodos": fields.GetNotTodos,
 		"getUsers": fields.GetUsers,
+		"checkUnique": fields.CheckUnique,
 	},
 })

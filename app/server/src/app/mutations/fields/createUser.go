@@ -3,7 +3,9 @@ package mutations
 import (
 	types "app/types"
 	"context"
-	
+
+	"github.com/mongodb/mongo-go-driver/bson"
+
 	"app/data"
 	"github.com/graphql-go/graphql"
 )
@@ -31,11 +33,21 @@ var CreateUser = &graphql.Field{
 		username, _ := params.Args["username"].(string)
 		password, _ := params.Args["password"].(string)
 		notTodoCollection := mongo.Client.Database("wastego").Collection("user")
-		_, err := notTodoCollection.InsertOne(context.Background(),
-			map[string]string{"username": username, "password": password})
-		if err != nil {
-			panic(err)
+		ctx := context.Background()
+		obj, err2 := notTodoCollection.Find(ctx, bson.M{"username": username})
+		if err2 != nil {panic(err2)}
+		count := 0
+		defer obj.Close(ctx)
+		for obj.Next(ctx) {
+			count++
 		}
-		return userStruct{username, password}, nil
+		if count == 0 {
+			_, err := notTodoCollection.InsertOne(ctx, map[string]string{"username": username, "password": password})
+			if err != nil {
+				panic(err)
+			}
+			return userStruct{username, password}, nil
+		}
+		return nil, nil
 	},
 }

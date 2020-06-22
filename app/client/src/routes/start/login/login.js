@@ -12,7 +12,6 @@ const query = gql`
   }
 `
 
-// example of a graphql mutation
 const mutation = gql`
   mutation CreateUser($username: String, $password: String) {
     createUser(username: $username, password: $password) {
@@ -38,13 +37,23 @@ class Login extends React.Component {
     onChange = event => {
       this.setState({ [event.target.name]: event.target.value})
     }
+
     save = () => {
+      console.log(1)
       this.props.mutate({
         variables: {
           username: this.state.username,
           password: this.state.password
         },
         refetchQueries: ['GetUsers']
+      }).then(res => {
+        if (res.data.createUser == null) {
+          alert("Invalid Username or username does not exist")
+        } else {
+          // redirect to login page
+        }
+      }).catch(err => {
+        console.log(err)
       })
     }  
     render() {
