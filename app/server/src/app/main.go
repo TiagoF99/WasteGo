@@ -8,6 +8,9 @@ import (
 
 	"github.com/graphql-go/graphql"
 	"github.com/graphql-go/handler"
+
+	"app/controller"
+	"github.com/gorilla/mux"
 )
 
 var schema, _ = graphql.NewSchema(graphql.SchemaConfig{
@@ -21,10 +24,18 @@ func main() {
 		Pretty: true,
 	})
 
+	r := mux.NewRouter()
+	r.HandleFunc("/register", controller.RegisterHandler).
+		Methods("POST")
+	r.HandleFunc("/login", controller.LoginHandler).
+		Methods("POST")
+	r.HandleFunc("/profile", controller.ProfileHandler).
+		Methods("GET")
+
 	// open a new graphql endpoint
 	http.Handle("/graphql", disableCors(h))
 	log.Println("Now server is running on port 3000")
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe(":3000", r)
 }
 
 func disableCors(h http.Handler) http.Handler {

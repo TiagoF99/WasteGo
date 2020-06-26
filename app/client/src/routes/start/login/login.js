@@ -2,6 +2,7 @@ import React from 'react'
 import { gql } from 'apollo-boost';
 import { graphql} from 'react-apollo';// example of a graphql query
 import * as compose from 'lodash.flowright';
+import { createBrowserHistory } from "history";
 
 const query = gql`
   query GetUsers{
@@ -27,6 +28,7 @@ const mutation = gql`
 class Login extends React.Component {
     constructor(props) {
       super(props)
+      this.history = createBrowserHistory();
       
       this.state = {
         username: '',
@@ -39,7 +41,6 @@ class Login extends React.Component {
     }
 
     save = () => {
-      console.log(1)
       this.props.mutate({
         variables: {
           username: this.state.username,
@@ -50,7 +51,7 @@ class Login extends React.Component {
         if (res.data.createUser == null) {
           alert("Invalid Username or username does not exist")
         } else {
-          // redirect to login page
+          this.history.push('/Home'); // login succesful so redirect to home page for user
         }
       }).catch(err => {
         console.log(err)
