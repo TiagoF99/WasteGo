@@ -8,6 +8,10 @@ Developed using React, Golang, and GraphQL.
 frontend:
 React
 
+mobile:
+firebase
+react-native
+
 Backend:
 Golang
 Graphql
