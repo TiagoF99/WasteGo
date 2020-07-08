@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "81244057783",
-    "firebase_url": "https://magnify-3b555.firebaseio.com",
-    "project_id": "magnify-3b555",
-    "storage_bucket": "magnify-3b555.appspot.com"
+    "project_number": "890947024995",
+    "firebase_url": "https://tilia-60f40.firebaseio.com",
+    "project_id": "tilia-60f40",
+    "storage_bucket": "tilia-60f40.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:81244057783:android:4cfad9be06ed6c560f1d32",
+        "mobilesdk_app_id": "1:890947024995:android:5ad1dbc550d34ba5af6056",
         "android_client_info": {
-          "package_name": "com.tiago.magnify"
+          "package_name": "com.tiago.tilia"
         }
       },
       "oauth_client": [
         {
-          "client_id": "81244057783-aeks9cvvufsum4av1u885bq1nmra738c.apps.googleusercontent.com",
+          "client_id": "890947024995-vuf0hk44jkr0unf4ce3ms3k2dbhljejq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDCC_AfQJem5wAENd8DbYanmQyXMOenDEI"
+          "current_key": "AIzaSyCGLinFZnihk5ktIt5r2kCnGi5k2ZboAjI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "81244057783-aeks9cvvufsum4av1u885bq1nmra738c.apps.googleusercontent.com",
+              "client_id": "890947024995-vuf0hk44jkr0unf4ce3ms3k2dbhljejq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
