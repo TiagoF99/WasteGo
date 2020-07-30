@@ -16,6 +16,7 @@
   "dependencies": {
     "@bam.tech/react-native-make": "^2.0.0",
     "@react-native-community/async-storage": "^1.9.0",
+    "@react-native-firebase/app": "^8.2.0",
     "@tensorflow-models/mobilenet": "^2.0.4",
     "@tensorflow/tfjs": "^1.7.2",
     "@tensorflow/tfjs-react-native": "^0.2.3",
@@ -28,8 +29,8 @@
     "expo-permissions": "^8.1.0",
     "jetifier": "^1.6.4",
     "jpeg-js": "^0.4.0",
-    "react": "16.8.6",
-    "react-native": "^0.62.2",
+    "react": "16.13.1",
+    "react-native": "^0.63.2",
     "react-native-firebase": "^5.6.0",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.6.1",

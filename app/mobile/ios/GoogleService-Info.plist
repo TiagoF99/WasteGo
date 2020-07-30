@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>890947024995-jesqm4es5seocf58j0ihmtpf1b0mv3sk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.890947024995-jesqm4es5seocf58j0ihmtpf1b0mv3sk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA_Iu67FYXd58OVYuDFOLbo5Xz-COb3qfI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>890947024995</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tiago.tilia</string>
+	<key>PROJECT_ID</key>
+	<string>tilia-60f40</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tilia-60f40.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:890947024995:ios:7c2f54f67be82f98af6056</string>
+	<key>DATABASE_URL</key>
+	<string>https://tilia-60f40.firebaseio.com</string>
+</dict>
+</plist>
